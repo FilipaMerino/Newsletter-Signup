@@ -35,7 +35,7 @@ app.post("/", function(req, res){
   }
 
   const jsonData = JSON.stringify(data);
-  const url = "https://us13.api.mailchimp.com/3.0/lists/7211e69e9";
+  const url = "https://us13.api.mailchimp.com/3.0/lists/7211e69e97";
 
   const options = {
       method: "POST",
@@ -64,7 +64,7 @@ app.post("/", function(req, res){
 
 
 app.post("/failure", function(req, res){
-  console.log(req.body.tryAgain);
+  res.redirect("/");
 
   // button.on("click", function(){
   //   res.redirect('/')
