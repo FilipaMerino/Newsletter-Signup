@@ -45,6 +45,12 @@ app.post("/", function(req, res){
 
   const request = https.request(url, options, function(response){
 
+    if (response.statusCode === 200) {
+      res.send("Sucessfully subscribed!")
+    } else {
+      res.send("There was an error on your signing up :(");
+    }
+
     response.on("data", function(data){
       console.log(JSON.parse(data));
     })
