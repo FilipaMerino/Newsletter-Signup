@@ -16,9 +16,22 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
 
-  var firstName = req.body.firstName;
-  var lastName = req.body.lastName;
-  var clientEmail = req.body.email;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const clientEmail = req.body.email;
+
+  const data = {
+    members: [{
+      email_address: clientEmail,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: firstName,
+        LNAME: lastName
+      }
+    }]
+  }
+
+  const jsonData = JSON(data.stringify(data));
 
 });
 
@@ -27,3 +40,9 @@ app.post("/", function(req, res){
 app.listen(3000, function(){
   console.log("You're in!");
 });
+
+// Audience Id
+// 7211e69e97
+
+// API Key
+// a7b45baf71ce22c21ad01b65f9ef7990-us13
